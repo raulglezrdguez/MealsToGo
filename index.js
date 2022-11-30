@@ -1,6 +1,9 @@
 import React from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { App } from './src/App';
 import { name as appName } from './app.json';
@@ -17,10 +20,18 @@ export default function Main() {
   const theme = dark ? DarkTheme : DefaultTheme;
 
   return (
-    <PaperProvider theme={theme}>
-      <App />
-    </PaperProvider>
+    <GestureHandlerRootView style={styles.gestureHandler}>
+      <PaperProvider theme={theme}>
+        <NavigationContainer theme={theme}>
+          <App />
+        </NavigationContainer>
+      </PaperProvider>
+    </GestureHandlerRootView>
   );
 }
 
 AppRegistry.registerComponent(appName, () => Main);
+
+const styles = StyleSheet.create({
+  gestureHandler: { flex: 1 },
+});

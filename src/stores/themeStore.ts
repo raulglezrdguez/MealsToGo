@@ -21,8 +21,3 @@ export const useThemeStore = create<DarkState>()(
     },
   ),
 );
-// export const useThemeStore = create(set => ({
-//   dark: 'false',
-//   setDark: (newDark: Boolean) => set(() => ({ dark: newDark })),
-//   changeDark: () => set((state: darkStore) => ({ dark: !state.dark })),
-// }));

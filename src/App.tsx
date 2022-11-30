@@ -1,7 +1,4 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 
 import { BottomTabsNavigator } from './screens/BottomTabs.navigator';
@@ -11,15 +8,5 @@ export const App: React.FC = () => {
     SplashScreen.hide();
   }, []);
 
-  return (
-    <GestureHandlerRootView style={styles.gestureHandler}>
-      <NavigationContainer>
-        <BottomTabsNavigator />
-      </NavigationContainer>
-    </GestureHandlerRootView>
-  );
+  return <BottomTabsNavigator />;
 };
-
-const styles = StyleSheet.create({
-  gestureHandler: { flex: 1 },
-});
