@@ -35,9 +35,23 @@ const CombinedDefaultTheme = {
 const CombinedDarkTheme = {
   ...PaperDarkTheme,
   ...NavigationDarkTheme,
+  roundness: 2,
   colors: {
     ...PaperDarkTheme.colors,
     ...NavigationDarkTheme.colors,
+    // primary: string;
+    // accent: string;
+    // background: string;
+    // card: string;
+    // text: string;
+    // border: string;
+    // notification: string;
+    // surface: string;
+    // error: string;
+    // onSurface: string;
+    // disabled: string;
+    // placeholder: string;
+    // backdrop: string;
     primary: '#1f285f',
     accent: '#f0801c',
     // surface: '#1f285f',
