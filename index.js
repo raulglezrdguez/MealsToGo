@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { App } from './src/App';
 import { name as appName } from './app.json';
+import { StyledTheme, ThemeProvider } from './src/styled';
 
 import {
   CombinedDarkTheme as DarkTheme,
@@ -21,11 +22,13 @@ export default function Main() {
 
   return (
     <GestureHandlerRootView style={styles.gestureHandler}>
-      <PaperProvider theme={theme}>
-        <NavigationContainer theme={theme}>
-          <App />
-        </NavigationContainer>
-      </PaperProvider>
+      <ThemeProvider theme={StyledTheme}>
+        <PaperProvider theme={theme}>
+          <NavigationContainer theme={theme}>
+            <App />
+          </NavigationContainer>
+        </PaperProvider>
+      </ThemeProvider>
     </GestureHandlerRootView>
   );
 }
