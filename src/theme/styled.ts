@@ -1,25 +1,21 @@
 import * as styledComponents from 'styled-components/native';
 
 import {
-  fonts,
-  fontSizes,
-  FontSizesType,
-  FontsType,
-  // fontWeights,
-  // FontWeightsType,
+  fontsFamily,
+  FontsFamilyType,
+  fontsSize,
+  FontsSizeType,
 } from './fonts';
 import { spacing, SpacingType } from './spacing';
 
 type StyledThemeType = {
-  fonts: FontsType;
-  fontSizes: FontSizesType;
-  // fontWeights: FontWeightsType;
+  fontsFamily: FontsFamilyType;
+  fontsSize: FontsSizeType;
   spacing: SpacingType;
 };
 export const StyledTheme: StyledThemeType = {
-  fonts,
-  fontSizes,
-  // fontWeights,
+  fontsFamily,
+  fontsSize,
   spacing,
 };
 

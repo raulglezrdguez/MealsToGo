@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, useTheme } from 'react-native-paper';
-import styled from '../../../styled';
+import styled from '../../../theme/styled';
 
 type RestaurantInfoProps = {
   name: string;
@@ -27,7 +27,7 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
     <Card elevation={5}>
       <CardTitle
         title={name}
-        titleStyle={{ fontFamily: theme.fontFamily.bold }}
+        titleStyle={{ fontFamily: theme.fontsFamily.bold }}
       />
       <CardCover
         key={name}

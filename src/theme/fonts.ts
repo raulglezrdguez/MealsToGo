@@ -1,28 +1,28 @@
-export type FontsType = {
+export type FontsFamilyType = {
   bold: string;
   italic: string;
   light: string;
   regular: string;
 };
-export const fonts: FontsType = {
+export const fontsFamily: FontsFamilyType = {
   bold: 'Roboto-Bold',
   italic: 'Roboto-Italic',
   light: 'Roboto-Light',
   regular: 'Roboto-regular',
 };
 
-export type FontWeightsType = {
+export type FontsWeightType = {
   regular: number;
   medium: number;
   bold: number;
 };
-export const fontWeights: FontWeightsType = {
+export const fontsWeight: FontsWeightType = {
   regular: 400,
   medium: 500,
   bold: 700,
 };
 
-export type FontSizesType = {
+export type FontsSizeType = {
   caption: string;
   button: string;
   body: string;
@@ -33,7 +33,7 @@ export type FontSizesType = {
   h2: string;
   h1: string;
 };
-export const fontSizes: FontSizesType = {
+export const fontsSize: FontsSizeType = {
   caption: '12px',
   button: '14px',
   body: '16px',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import styled from '../../../styled';
+import styled from '../../../theme/styled';
 import { RestaurantInfo } from '../components/RestaurantInfo';
 
 const Container = styled(View)`
