@@ -9,7 +9,7 @@ const Container = styled(View)`
   justify-content: flex-start;
 `;
 
-const SearchContainer = styled(View)`
+const SearchContainer = styled.View`
   margin: ${props => props.theme.spacing.sm}px;
 `;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-native-paper';
+import { Card, useTheme } from 'react-native-paper';
 import styled from '../../../styled';
 
 type RestaurantInfoProps = {
@@ -12,6 +12,8 @@ type RestaurantInfoProps = {
   isClosedTemporarily?: boolean;
 };
 
+const CardTitle = styled(Card.Title)``;
+
 const CardCover = styled(Card.Cover)`
   margin: ${props => props.theme.spacing.sm}px;
   border-radius: 5px;
@@ -19,10 +21,14 @@ const CardCover = styled(Card.Cover)`
 
 export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
   const { name } = restaurant;
+  const theme = useTheme();
 
   return (
     <Card elevation={5}>
-      <Card.Title title={name} />
+      <CardTitle
+        title={name}
+        titleStyle={{ fontFamily: theme.fontFamily.bold }}
+      />
       <CardCover
         key={name}
         source={require('./../../../assets/restaurant-foods.jpg')}

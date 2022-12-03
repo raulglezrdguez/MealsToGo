@@ -5,21 +5,21 @@ import {
   fontSizes,
   FontSizesType,
   FontsType,
-  fontWeights,
-  FontWeightsType,
+  // fontWeights,
+  // FontWeightsType,
 } from './fonts';
 import { spacing, SpacingType } from './spacing';
 
 type StyledThemeType = {
   fonts: FontsType;
   fontSizes: FontSizesType;
-  fontWeights: FontWeightsType;
+  // fontWeights: FontWeightsType;
   spacing: SpacingType;
 };
 export const StyledTheme: StyledThemeType = {
   fonts,
   fontSizes,
-  fontWeights,
+  // fontWeights,
   spacing,
 };
 
