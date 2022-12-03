@@ -8,7 +8,7 @@ type DarkState = {
   changeDark: () => void;
 };
 
-export const useThemeStore = create<DarkState>()(
+export const useDarkStore = create<DarkState>()(
   persist(
     set => ({
       dark: false,

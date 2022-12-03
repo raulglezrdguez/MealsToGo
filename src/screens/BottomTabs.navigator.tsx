@@ -4,15 +4,15 @@ import { IconSearch } from '../components/IconSearch';
 import { IconButton, useTheme } from 'react-native-paper';
 
 import { Restaurants } from '../features/restaurants/screens/Restaurants.screen';
-import { useThemeStore } from '../stores/themeStore';
+import { useDarkStore } from '../stores/darkStore';
 
 const BottomTabs = createBottomTabNavigator();
 
 export const BottomTabsNavigator = () => {
   const { colors } = useTheme();
 
-  const changeDark = useThemeStore(state => state.changeDark);
-  const dark = useThemeStore(state => state.dark);
+  const changeDark = useDarkStore(state => state.changeDark);
+  const dark = useDarkStore(state => state.dark);
 
   return (
     <BottomTabs.Navigator

@@ -13,10 +13,10 @@ import {
   CombinedDarkTheme as DarkTheme,
   CombinedDefaultTheme as DefaultTheme,
 } from './src/theme';
-import { useThemeStore } from './src/stores/themeStore';
+import { useDarkStore } from './src/stores/darkStore';
 
 export default function Main() {
-  const dark = useThemeStore(state => state.dark);
+  const dark = useDarkStore(state => state.dark);
 
   const theme = dark ? DarkTheme : DefaultTheme;
 
