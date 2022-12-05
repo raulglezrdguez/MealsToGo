@@ -27,6 +27,7 @@ export const Restaurants = () => {
         <RestaurantInfo
           name="test"
           photos={['./../../../assets/restaurant-foods.jpg']}
+          address="Address: some random address"
         />
       </RestaurantsContainer>
     </Container>
