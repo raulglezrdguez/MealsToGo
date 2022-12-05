@@ -1,7 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Card, Text, useTheme } from 'react-native-paper';
+
+import { IconOpen } from '../../../components/IconOpen';
 import { IconStar } from '../../../components/IconStar';
+
 import styled from '../../../theme/styled';
 
 type RestaurantInfoProps = {
@@ -11,7 +14,7 @@ type RestaurantInfoProps = {
   address?: string;
   openingHours?: string;
   rating?: number;
-  isClosedTemporarily?: boolean;
+  isOpenNow?: boolean;
 };
 
 const CardTitle = styled(Text)`
@@ -39,8 +42,19 @@ const Rating = styled(View)`
   padding-bottom: ${props => props.theme.spacing.sm}px;
 `;
 
+const Col = styled(View)`
+  flex-direction: column;
+  justify-content: flex-start;
+`;
+
+const Row = styled(View)`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
-  const { name, address, rating = 0 } = restaurant;
+  const { name, address, rating = 0, isOpenNow = false } = restaurant;
 
   const theme = useTheme();
 
@@ -70,11 +84,18 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
       <Info>
         <CardTitle>{name}</CardTitle>
 
-        <Rating>
-          {stars}
-          {restStar}
-        </Rating>
-        <Address>{address}</Address>
+        <Row>
+          <Col>
+            <Rating>
+              {stars}
+              {restStar}
+            </Rating>
+            <Address>{address}</Address>
+          </Col>
+          {isOpenNow && (
+            <IconOpen color={theme.colors.accent} size={theme.spacing.xxl} />
+          )}
+        </Row>
       </Info>
     </Card>
   );
