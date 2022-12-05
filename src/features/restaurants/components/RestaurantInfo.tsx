@@ -69,6 +69,7 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
       />
       <Info>
         <CardTitle>{name}</CardTitle>
+
         <Rating>
           {stars}
           {restStar}
