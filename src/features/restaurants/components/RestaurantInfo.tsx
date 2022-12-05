@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Card, Text } from 'react-native-paper';
+import { Card, Text, useTheme } from 'react-native-paper';
+import { IconStar } from '../../../components/IconStar';
 import styled from '../../../theme/styled';
 
 type RestaurantInfoProps = {
@@ -32,8 +33,20 @@ const Address = styled(Text)`
   font-size: ${props => props.theme.fontsSize.caption};
 `;
 
+const Rating = styled(View)`
+  flex-direction: row;
+  padding-top: ${props => props.theme.spacing.sm}px;
+  padding-bottom: ${props => props.theme.spacing.sm}px;
+`;
+
 export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
-  const { name, address } = restaurant;
+  const { name, address, rating } = restaurant;
+
+  const theme = useTheme();
+
+  const stars = [...Array(Math.floor(rating ? rating : 0))].map((_, i) => (
+    <IconStar key={i} color={theme.colors.accent} size={theme.spacing.md} />
+  ));
 
   return (
     <Card elevation={5}>
@@ -43,6 +56,7 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
       />
       <Info>
         <CardTitle>{name}</CardTitle>
+        <Rating>{stars}</Rating>
         <Address>{address}</Address>
       </Info>
     </Card>

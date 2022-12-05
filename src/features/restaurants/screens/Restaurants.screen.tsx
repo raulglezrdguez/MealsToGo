@@ -28,6 +28,7 @@ export const Restaurants = () => {
           name="test"
           photos={['./../../../assets/restaurant-foods.jpg']}
           address="Address: some random address"
+          rating={3.5}
         />
       </RestaurantsContainer>
     </Container>
