@@ -40,13 +40,26 @@ const Rating = styled(View)`
 `;
 
 export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
-  const { name, address, rating } = restaurant;
+  const { name, address, rating = 0 } = restaurant;
 
   const theme = useTheme();
 
-  const stars = [...Array(Math.floor(rating ? rating : 0))].map((_, i) => (
-    <IconStar key={i} color={theme.colors.accent} size={theme.spacing.md} />
+  const stars = [...Array(Math.floor(rating))].map((_, i) => (
+    <IconStar
+      key={i}
+      color={theme.colors.accent}
+      strokeColor={theme.colors.text}
+      size={theme.spacing.md}
+    />
   ));
+  const restStar = (
+    <IconStar
+      color={theme.colors.accent}
+      strokeColor={theme.colors.text}
+      size={theme.spacing.md}
+      percent={rating % Math.floor(rating)}
+    />
+  );
 
   return (
     <Card elevation={5}>
@@ -56,7 +69,10 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
       />
       <Info>
         <CardTitle>{name}</CardTitle>
-        <Rating>{stars}</Rating>
+        <Rating>
+          {stars}
+          {restStar}
+        </Rating>
         <Address>{address}</Address>
       </Info>
     </Card>
