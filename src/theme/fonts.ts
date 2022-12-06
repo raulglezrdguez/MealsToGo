@@ -23,24 +23,24 @@ export const fontsWeight: FontsWeightType = {
 };
 
 export type FontsSizeType = {
-  caption: string;
-  button: string;
-  body: string;
-  title: string;
-  h5: string;
-  h4: string;
-  h3: string;
-  h2: string;
-  h1: string;
+  caption: number;
+  button: number;
+  body: number;
+  title: number;
+  h5: number;
+  h4: number;
+  h3: number;
+  h2: number;
+  h1: number;
 };
 export const fontsSize: FontsSizeType = {
-  caption: '12px',
-  button: '14px',
-  body: '16px',
-  title: '20px',
-  h5: '24px',
-  h4: '34px',
-  h3: '45px',
-  h2: '56px',
-  h1: '112px',
+  caption: 12,
+  button: 14,
+  body: 16,
+  title: 20,
+  h5: 24,
+  h4: 34,
+  h3: 45,
+  h2: 56,
+  h1: 75,
 };

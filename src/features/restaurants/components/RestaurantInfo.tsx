@@ -6,6 +6,7 @@ import { IconOpen } from '../../../components/IconOpen';
 import { IconStar } from '../../../components/IconStar';
 
 import styled from '../../../theme/styled';
+import { textStyle } from '../../../utils/styles';
 
 type RestaurantInfoProps = {
   name: string;
@@ -17,11 +18,6 @@ type RestaurantInfoProps = {
   isOpenNow?: boolean;
 };
 
-const CardTitle = styled(Text)`
-  font-family: ${props => props.theme.fontsFamily.bold};
-  font-size: ${props => props.theme.fontsSize.title};
-`;
-
 const CardCover = styled(Card.Cover)`
   margin: ${props => props.theme.spacing.sm}px;
   border-radius: 5px;
@@ -29,11 +25,6 @@ const CardCover = styled(Card.Cover)`
 
 const Info = styled(View)`
   padding: ${props => props.theme.spacing.sm}px;
-`;
-
-const Address = styled(Text)`
-  font-family: ${props => props.theme.fontsFamily.light};
-  font-size: ${props => props.theme.fontsSize.caption};
 `;
 
 const Rating = styled(View)`
@@ -82,7 +73,7 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
         source={require('./../../../assets/restaurant-foods.jpg')}
       />
       <Info>
-        <CardTitle>{name}</CardTitle>
+        <Text style={textStyle('title', theme)}>{name}</Text>
 
         <Row>
           <Col>
@@ -90,7 +81,7 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
               {stars}
               {restStar}
             </Rating>
-            <Address>{address}</Address>
+            <Text style={textStyle('caption', theme)}>{address}</Text>
           </Col>
           {isOpenNow && (
             <IconOpen color={theme.colors.accent} size={theme.spacing.xxl} />

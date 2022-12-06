@@ -8,7 +8,7 @@ import {
 } from './fonts';
 import { spacing, SpacingType } from './spacing';
 
-type StyledThemeType = {
+export type StyledThemeType = {
   fontsFamily: FontsFamilyType;
   fontsSize: FontsSizeType;
   spacing: SpacingType;
