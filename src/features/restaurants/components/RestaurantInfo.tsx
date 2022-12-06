@@ -2,8 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Card, Text, useTheme } from 'react-native-paper';
 
-import { IconOpen } from '../../../components/IconOpen';
-import { IconStar } from '../../../components/IconStar';
+import { IconStar, IconOpen } from '../../../components/icons';
 
 import styled from '../../../theme/styled';
 import { textStyle } from '../../../utils/styles';

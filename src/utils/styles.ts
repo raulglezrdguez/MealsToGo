@@ -1,13 +1,13 @@
 import { StyleProp, StyleSheet, TextStyle } from 'react-native';
 
 type VariantType =
-  | 'body'
-  | 'button'
-  | 'label'
   | 'caption'
+  | 'button'
+  | 'body'
+  | 'title'
+  | 'label'
   | 'error'
-  | 'hint'
-  | 'title';
+  | 'hint';
 
 const defaultTextStyles = (theme: ReactNativePaper.Theme) =>
   StyleSheet.flatten([
@@ -22,21 +22,25 @@ const defaultTextStyles = (theme: ReactNativePaper.Theme) =>
 
 const typography = (theme: ReactNativePaper.Theme) =>
   StyleSheet.create({
-    body: {
+    caption: {
       fontFamily: theme.fontsFamily.regular,
-      fontSize: theme.fontsSize.body,
+      fontSize: theme.fontsSize.caption,
     },
     button: {
       fontFamily: theme.fontsFamily.regular,
       fontSize: theme.fontsSize.button,
     },
+    body: {
+      fontFamily: theme.fontsFamily.regular,
+      fontSize: theme.fontsSize.body,
+    },
+    title: {
+      fontFamily: theme.fontsFamily.bold,
+      fontSize: theme.fontsSize.title,
+    },
     label: {
       fontFamily: theme.fontsFamily.bold,
       fontSize: theme.fontsSize.body,
-    },
-    caption: {
-      fontFamily: theme.fontsFamily.regular,
-      fontSize: theme.fontsSize.caption,
     },
     error: {
       fontFamily: theme.fontsFamily.bold,
@@ -46,10 +50,6 @@ const typography = (theme: ReactNativePaper.Theme) =>
     hint: {
       fontFamily: theme.fontsFamily.italic,
       fontSize: theme.fontsSize.caption,
-    },
-    title: {
-      fontFamily: theme.fontsFamily.bold,
-      fontSize: theme.fontsSize.title,
     },
   });
 

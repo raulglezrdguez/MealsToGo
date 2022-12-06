@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { IconSearch } from '../components/IconSearch';
+import { IconSearch } from '../components/icons/IconSearch';
 import { IconButton, useTheme } from 'react-native-paper';
 
 import { Restaurants } from '../features/restaurants/screens/Restaurants.screen';
