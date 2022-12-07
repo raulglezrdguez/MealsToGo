@@ -1,11 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
 import { Card, Text, useTheme } from 'react-native-paper';
 
 import { IconStar, IconOpen } from '../../../components/icons';
 
-import styled from '../../../theme/styled';
 import { textStyle } from '../../../utils/styles';
+import { CardCover, Col, Info, Rating, Row } from './RestaurantInfo.styled';
 
 type RestaurantInfoProps = {
   name: string;
@@ -16,32 +15,6 @@ type RestaurantInfoProps = {
   rating?: number;
   isOpenNow?: boolean;
 };
-
-const CardCover = styled(Card.Cover)`
-  margin: ${props => props.theme.spacing.sm}px;
-  border-radius: 5px;
-`;
-
-const Info = styled(View)`
-  padding: ${props => props.theme.spacing.sm}px;
-`;
-
-const Rating = styled(View)`
-  flex-direction: row;
-  padding-top: ${props => props.theme.spacing.sm}px;
-  padding-bottom: ${props => props.theme.spacing.sm}px;
-`;
-
-const Col = styled(View)`
-  flex-direction: column;
-  justify-content: flex-start;
-`;
-
-const Row = styled(View)`
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
 
 export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
   const { name, address, rating = 0, isOpenNow = false } = restaurant;
