@@ -11,6 +11,7 @@ import { IconSoup } from './IconSoup';
 import { IconSpaghetti } from './IconSpaghetti';
 import { IconTea } from './IconTea';
 import { IconWine } from './IconWine';
+import { IconRestaurant } from './IconRestaurant';
 
 export {
   IconOpen,
@@ -26,4 +27,5 @@ export {
   IconSpaghetti,
   IconTea,
   IconWine,
+  IconRestaurant,
 };

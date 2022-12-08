@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { IconSearch } from '../components/icons/IconSearch';
 import { IconButton, useTheme } from 'react-native-paper';
 
 import { Restaurants } from '../features/restaurants/screens/Restaurants.screen';
 import { useDarkStore } from '../stores/darkStore';
+import { IconRestaurant } from '../components/icons';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -28,7 +28,7 @@ export const BottomTabsNavigator = () => {
         tabBarActiveBackgroundColor: colors.background,
         tabBarIcon: ({ color, size }) => {
           if (route.name === 'Restaurants') {
-            return <IconSearch color={color} size={size} />;
+            return <IconRestaurant color={color} size={size} />;
           }
           return null;
         },

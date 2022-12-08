@@ -1,37 +1,62 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ListRenderItem } from 'react-native';
 import { Searchbar } from 'react-native-paper';
-import styled from '../../../theme/styled';
-import { RestaurantInfo } from '../components/RestaurantInfo';
 
-const Container = styled(View)`
-  flex: 1;
-  justify-content: flex-start;
-`;
+import {
+  RestaurantInfo,
+  RestaurantInfoProps,
+} from '../components/RestaurantInfo';
+import {
+  StyledContainer,
+  StyledRestaurantList,
+  StyledSearchContainer,
+} from './Restaurants.screen.styled';
 
-const SearchContainer = styled.View`
-  margin: ${props => props.theme.spacing.sm}px;
-`;
+const DATA: RestaurantInfoProps[] = [
+  {
+    name: 'Test',
+    photos: ['./../../../assets/restaurant-foods.jpg'],
+    address: 'this is the address',
+    icon: '',
+    isOpenNow: true,
+    offers: ['Beer', 'Dessert', 'Pizza'],
+    openingHours: '',
+    rating: 2.4,
+  },
+  {
+    name: 'Test1',
+    photos: ['./../../../assets/restaurant-foods.jpg'],
+    address: 'this is the address',
+    icon: '',
+    isOpenNow: false,
+    offers: ['Coffee', 'Sandwich', 'Wine'],
+    openingHours: '',
+    rating: 2.4,
+  },
+];
 
-const RestaurantsContainer = styled(View)`
-  margin: ${props => props.theme.spacing.sm}px;
-`;
+const renderItem: ListRenderItem<RestaurantInfoProps> = ({ item }) => (
+  <RestaurantInfo
+    name={item.name}
+    photos={item.photos}
+    address={item.address}
+    rating={item.rating}
+    isOpenNow={item.isOpenNow}
+    offers={item.offers}
+  />
+);
 
 export const Restaurants = () => {
   return (
-    <Container>
-      <SearchContainer>
+    <StyledContainer>
+      <StyledSearchContainer>
         <Searchbar value="" />
-      </SearchContainer>
-      <RestaurantsContainer>
-        <RestaurantInfo
-          name="test"
-          photos={['./../../../assets/restaurant-foods.jpg']}
-          address="Address: some random address"
-          rating={3.55}
-          isOpenNow={true}
-        />
-      </RestaurantsContainer>
-    </Container>
+      </StyledSearchContainer>
+      <StyledRestaurantList
+        data={DATA}
+        keyExtractor={(item: RestaurantInfoProps) => item.name}
+        renderItem={renderItem}
+      />
+    </StyledContainer>
   );
 };
