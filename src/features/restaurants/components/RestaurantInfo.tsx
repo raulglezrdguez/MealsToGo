@@ -81,52 +81,83 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
     switch (offer) {
       case 'Beer':
         return (
-          <IconBeer color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconBeer
+            key={'beer'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
       case 'Coffee':
         return (
-          <IconCoffee color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconCoffee
+            key={'coffee'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
       case 'Dessert':
         return (
           <IconDessert
+            key={'dessert'}
             color={theme.colors.accent}
             size={theme.fontsSize.body}
           />
         );
       case 'Pizza':
         return (
-          <IconPizza color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconPizza
+            key={'pizza'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
       case 'Salad':
         return (
-          <IconSalad color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconSalad
+            key={'salad'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
       case 'Sandwich':
         return (
           <IconSandwich
+            key={'sandwich'}
             color={theme.colors.accent}
             size={theme.fontsSize.body}
           />
         );
       case 'Soup':
         return (
-          <IconSoup color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconSoup
+            key={'soup'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
       case 'Spaqhetti':
         return (
           <IconSpaghetti
+            key={'spaghetti'}
             color={theme.colors.accent}
             size={theme.fontsSize.body}
           />
         );
       case 'Tea':
         return (
-          <IconTea color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconTea
+            key={'tea'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
       case 'Wine':
         return (
-          <IconWine color={theme.colors.accent} size={theme.fontsSize.body} />
+          <IconWine
+            key={'wine'}
+            color={theme.colors.accent}
+            size={theme.fontsSize.body}
+          />
         );
 
       default:

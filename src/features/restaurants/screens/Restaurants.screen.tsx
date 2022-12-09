@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListRenderItem } from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { Searchbar, useTheme } from 'react-native-paper';
+import { Spacer } from '../../../components/Spacer';
 
 import {
   RestaurantInfo,
@@ -37,6 +38,7 @@ const DATA: RestaurantInfoProps[] = [
 
 const renderItem: ListRenderItem<RestaurantInfoProps> = ({ item }) => (
   <RestaurantInfo
+    key={item.name}
     name={item.name}
     photos={item.photos}
     address={item.address}
@@ -47,6 +49,7 @@ const renderItem: ListRenderItem<RestaurantInfoProps> = ({ item }) => (
 );
 
 export const Restaurants = () => {
+  const { spacing } = useTheme();
   return (
     <StyledContainer>
       <StyledSearchContainer>
@@ -57,6 +60,7 @@ export const Restaurants = () => {
         keyExtractor={(item: RestaurantInfoProps) => item.name}
         renderItem={renderItem}
       />
+      <Spacer from="bottom" size={spacing.xxl} />
     </StyledContainer>
   );
 };
