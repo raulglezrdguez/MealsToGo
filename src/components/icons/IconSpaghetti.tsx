@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import Svg, { SvgProps, Circle, Path } from 'react-native-svg';
+import { spacing } from '../../theme/spacing';
 
 interface SVGRProps {
   color?: string;
@@ -8,7 +9,12 @@ interface SVGRProps {
 
 export const IconSpaghetti = memo(
   ({ color = 'black', size = 24, ...props }: SvgProps & SVGRProps) => (
-    <Svg viewBox="0 0 511.999 511.999" height={size} width={size} {...props}>
+    <Svg
+      style={{ marginHorizontal: spacing.sm }}
+      viewBox="0 0 511.999 511.999"
+      height={size}
+      width={size}
+      {...props}>
       <Circle fill={color} cx={409.454} cy={345.948} r={7.923} />
       <Circle fill={color} cx={374.392} cy={292.516} r={7.923} />
       <Circle fill={color} cx={314.265} cy={341.72} r={7.923} />

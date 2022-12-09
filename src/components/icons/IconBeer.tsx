@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import Svg, { SvgProps, Path, Circle } from 'react-native-svg';
+import { spacing } from '../../theme/spacing';
 
 interface SVGRProps {
   color?: string;
@@ -8,7 +9,12 @@ interface SVGRProps {
 
 export const IconBeer = memo(
   ({ color = 'black', size = 24, ...props }: SvgProps & SVGRProps) => (
-    <Svg viewBox="0 0 470 470" height={size} width={size} {...props}>
+    <Svg
+      style={{ marginHorizontal: spacing.sm }}
+      viewBox="0 0 470 470"
+      height={size}
+      width={size}
+      {...props}>
       <Path
         fill={color}
         d="M375.303 160.673h-31.311v-2.5c0-4.142-3.357-7.5-7.5-7.5s-7.5 3.358-7.5 7.5V327.11c0 4.142 3.357 7.5 7.5 7.5s7.5-3.358 7.5-7.5v-2.5h31.311c19.16 0 34.748-15.588 34.748-34.748v-94.441c0-19.16-15.588-34.748-34.748-34.748zm19.748 129.189c0 10.889-8.859 19.748-19.748 19.748h-31.311V175.673h31.311c10.889 0 19.748 8.859 19.748 19.748v94.441z"

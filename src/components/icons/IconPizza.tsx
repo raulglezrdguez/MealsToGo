@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import Svg, { SvgProps, G, Circle, Path } from 'react-native-svg';
+import { spacing } from '../../theme/spacing';
 
 interface SVGRProps {
   size?: number;
@@ -8,7 +9,12 @@ interface SVGRProps {
 
 export const IconPizza = memo(
   ({ size = 24, color = 'black', ...props }: SvgProps & SVGRProps) => (
-    <Svg viewBox="0 0 478.996 478.996" width={size} height={size} {...props}>
+    <Svg
+      style={{ marginHorizontal: spacing.sm }}
+      viewBox="0 0 478.996 478.996"
+      width={size}
+      height={size}
+      {...props}>
       <G transform="translate(0 -540.36)">
         <Circle fill={color} cx={181.758} cy={737.326} r={8.5} />
         <Circle fill={color} cx={73.758} cy={804.926} r={8.5} />
