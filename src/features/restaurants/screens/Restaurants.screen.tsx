@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListRenderItem } from 'react-native';
+import { ListRenderItem, StyleSheet } from 'react-native';
 import { Searchbar, useTheme } from 'react-native-paper';
 import { Spacer } from '../../../components/Spacer';
 import Reanimated, {
@@ -13,7 +13,6 @@ import {
   RestaurantInfoProps,
 } from '../components/RestaurantInfo';
 import {
-  StyledContainer,
   StyledRestaurantList,
   StyledSearchContainer,
 } from './Restaurants.screen.styled';
@@ -57,29 +56,35 @@ const renderItem: ListRenderItem<RestaurantInfoProps> = ({ item }) => (
 export const Restaurants = () => {
   const { spacing } = useTheme();
   return (
-    <StyledContainer>
-      <Reanimated.View
-        entering={
-          Math.random() > 0.5
-            ? SlideInRight.delay(SlideDelay)
-            : SlideInLeft.delay(SlideDelay)
-        }
-        exiting={
-          Math.random() > 0.5
-            ? SlideInRight.delay(SlideDelay)
-            : SlideInLeft.delay(SlideDelay)
-        }
-        layout={Layout.springify()}>
-        <StyledSearchContainer>
-          <Searchbar value="" />
-        </StyledSearchContainer>
-        <StyledRestaurantList
-          data={DATA}
-          keyExtractor={(item: RestaurantInfoProps) => item.name}
-          renderItem={renderItem}
-        />
-        <Spacer from="bottom" size={spacing.xxl} />
-      </Reanimated.View>
-    </StyledContainer>
+    <Reanimated.View
+      entering={
+        Math.random() > 0.5
+          ? SlideInRight.delay(SlideDelay)
+          : SlideInLeft.delay(SlideDelay)
+      }
+      exiting={
+        Math.random() > 0.5
+          ? SlideInRight.delay(SlideDelay)
+          : SlideInLeft.delay(SlideDelay)
+      }
+      layout={Layout.springify()}
+      style={styles.container}>
+      <StyledSearchContainer>
+        <Searchbar value="" />
+      </StyledSearchContainer>
+      <StyledRestaurantList
+        data={DATA}
+        keyExtractor={(item: RestaurantInfoProps) => item.name}
+        renderItem={renderItem}
+      />
+      <Spacer from="top" size={spacing.xxl} />
+    </Reanimated.View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+  },
+});
