@@ -1,5 +1,10 @@
 import React from 'react';
 import { Text, useTheme } from 'react-native-paper';
+import Reanimated, {
+  Layout,
+  SlideInLeft,
+  SlideInRight,
+} from 'react-native-reanimated';
 
 import {
   IconStar,
@@ -26,6 +31,8 @@ import {
   StyledRating,
   StyledRow,
 } from './RestaurantInfo.styled';
+
+const SLIDE_DELAY = 1000;
 
 type OffersType =
   | 'Beer'
@@ -166,28 +173,41 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
   });
 
   return (
-    <StyledCard elevation={5}>
-      <StyledCardCover
-        key={name}
-        source={require('./../../../assets/restaurant-foods.jpg')}
-      />
-      <StyledInfo>
-        <Text style={textStyle('title', theme)}>{name}</Text>
+    <Reanimated.View
+      entering={
+        Math.random() > 0.5
+          ? SlideInRight.delay(SLIDE_DELAY)
+          : SlideInLeft.delay(SLIDE_DELAY)
+      }
+      exiting={
+        Math.random() > 0.5
+          ? SlideInRight.delay(SLIDE_DELAY)
+          : SlideInLeft.delay(SLIDE_DELAY)
+      }
+      layout={Layout.springify()}>
+      <StyledCard elevation={5}>
+        <StyledCardCover
+          key={name}
+          source={require('./../../../assets/restaurant-foods.jpg')}
+        />
+        <StyledInfo>
+          <Text style={textStyle('title', theme)}>{name}</Text>
 
-        <StyledRow>
-          <StyledCol>
-            <StyledRating>
-              {stars}
-              {restStar}
-            </StyledRating>
-            <Text style={textStyle('caption', theme)}>{address}</Text>
-          </StyledCol>
-          {isOpenNow && (
-            <IconOpen color={theme.colors.accent} size={theme.spacing.xxl} />
-          )}
-        </StyledRow>
-        <StyledOffers>{offersIcons}</StyledOffers>
-      </StyledInfo>
-    </StyledCard>
+          <StyledRow>
+            <StyledCol>
+              <StyledRating>
+                {stars}
+                {restStar}
+              </StyledRating>
+              <Text style={textStyle('caption', theme)}>{address}</Text>
+            </StyledCol>
+            {isOpenNow && (
+              <IconOpen color={theme.colors.accent} size={theme.spacing.xxl} />
+            )}
+          </StyledRow>
+          <StyledOffers>{offersIcons}</StyledOffers>
+        </StyledInfo>
+      </StyledCard>
+    </Reanimated.View>
   );
 };
