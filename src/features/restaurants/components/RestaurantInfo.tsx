@@ -20,6 +20,7 @@ import {
   IconTea,
   IconWine,
 } from '../../../components/icons';
+import { SlideDelay } from '../../../utils/consts';
 
 import { textStyle } from '../../../utils/styles';
 import {
@@ -31,8 +32,6 @@ import {
   StyledRating,
   StyledRow,
 } from './RestaurantInfo.styled';
-
-const SLIDE_DELAY = 1000;
 
 type OffersType =
   | 'Beer'
@@ -176,13 +175,13 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
     <Reanimated.View
       entering={
         Math.random() > 0.5
-          ? SlideInRight.delay(SLIDE_DELAY)
-          : SlideInLeft.delay(SLIDE_DELAY)
+          ? SlideInRight.delay(SlideDelay)
+          : SlideInLeft.delay(SlideDelay)
       }
       exiting={
         Math.random() > 0.5
-          ? SlideInRight.delay(SLIDE_DELAY)
-          : SlideInLeft.delay(SLIDE_DELAY)
+          ? SlideInRight.delay(SlideDelay)
+          : SlideInLeft.delay(SlideDelay)
       }
       layout={Layout.springify()}>
       <StyledCard elevation={5}>

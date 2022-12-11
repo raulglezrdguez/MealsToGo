@@ -2,6 +2,11 @@ import React from 'react';
 import { ListRenderItem } from 'react-native';
 import { Searchbar, useTheme } from 'react-native-paper';
 import { Spacer } from '../../../components/Spacer';
+import Reanimated, {
+  Layout,
+  SlideInLeft,
+  SlideInRight,
+} from 'react-native-reanimated';
 
 import {
   RestaurantInfo,
@@ -12,6 +17,7 @@ import {
   StyledRestaurantList,
   StyledSearchContainer,
 } from './Restaurants.screen.styled';
+import { SlideDelay } from '../../../utils/consts';
 
 const DATA: RestaurantInfoProps[] = [
   {
@@ -52,15 +58,28 @@ export const Restaurants = () => {
   const { spacing } = useTheme();
   return (
     <StyledContainer>
-      <StyledSearchContainer>
-        <Searchbar value="" />
-      </StyledSearchContainer>
-      <StyledRestaurantList
-        data={DATA}
-        keyExtractor={(item: RestaurantInfoProps) => item.name}
-        renderItem={renderItem}
-      />
-      <Spacer from="bottom" size={spacing.xxl} />
+      <Reanimated.View
+        entering={
+          Math.random() > 0.5
+            ? SlideInRight.delay(SlideDelay)
+            : SlideInLeft.delay(SlideDelay)
+        }
+        exiting={
+          Math.random() > 0.5
+            ? SlideInRight.delay(SlideDelay)
+            : SlideInLeft.delay(SlideDelay)
+        }
+        layout={Layout.springify()}>
+        <StyledSearchContainer>
+          <Searchbar value="" />
+        </StyledSearchContainer>
+        <StyledRestaurantList
+          data={DATA}
+          keyExtractor={(item: RestaurantInfoProps) => item.name}
+          renderItem={renderItem}
+        />
+        <Spacer from="bottom" size={spacing.xxl} />
+      </Reanimated.View>
     </StyledContainer>
   );
 };
