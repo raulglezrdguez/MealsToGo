@@ -4,8 +4,8 @@ import { IconButton } from 'react-native-paper';
 
 import { Restaurants } from '../features/restaurants/screens/Restaurants.screen';
 import { useDarkStore } from '../stores/darkStore';
-import { Map } from '../features/restaurants/screens/Map.screen';
-import { Settings } from '../features/restaurants/screens/Settings.screen';
+import { Map } from '../features/map/screens/Map.screen';
+import { Settings } from '../features/settings/screens/Settings.screen';
 import { BottomTabBar } from '../components/BottomTabBar';
 
 const BottomTabs = createBottomTabNavigator();
