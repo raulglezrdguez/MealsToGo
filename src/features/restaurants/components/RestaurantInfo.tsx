@@ -9,17 +9,18 @@ import Reanimated, {
 import {
   IconStar,
   IconOpen,
-  IconBeer,
-  IconCoffee,
-  IconDessert,
-  IconPizza,
-  IconSalad,
-  IconSandwich,
-  IconSoup,
-  IconSpaghetti,
-  IconTea,
-  IconWine,
+  // IconBeer,
+  // IconCoffee,
+  // IconDessert,
+  // IconPizza,
+  // IconSalad,
+  // IconSandwich,
+  // IconSoup,
+  // IconSpaghetti,
+  // IconTea,
+  // IconWine,
 } from '../../../components/icons';
+import { RestaurantsEntity } from '../../../utils/camelizeTypes';
 import { SlideDelay } from '../../../utils/consts';
 
 import { textStyle } from '../../../utils/styles';
@@ -28,40 +29,30 @@ import {
   StyledCardCover,
   StyledCol,
   StyledInfo,
-  StyledOffers,
+  // StyledOffers,
   StyledRating,
   StyledRow,
 } from './RestaurantInfo.styled';
 
-type OffersType =
-  | 'Beer'
-  | 'Coffee'
-  | 'Dessert'
-  | 'Pizza'
-  | 'Salad'
-  | 'Sandwich'
-  | 'Soup'
-  | 'Spaqhetti'
-  | 'Tea'
-  | 'Wine';
-export type RestaurantInfoProps = {
-  name: string;
-  icon?: string;
-  photos: string[];
-  address?: string;
-  openingHours?: string;
-  rating?: number;
-  isOpenNow?: boolean;
-  offers?: OffersType[];
-};
+// type OffersType =
+//   | 'Beer'
+//   | 'Coffee'
+//   | 'Dessert'
+//   | 'Pizza'
+//   | 'Salad'
+//   | 'Sandwich'
+//   | 'Soup'
+//   | 'Spaqhetti'
+//   | 'Tea'
+//   | 'Wine';
 
-export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
+export const RestaurantInfo = (restaurant: RestaurantsEntity) => {
   const {
     name,
-    address,
+    vicinity,
     rating = 0,
     isOpenNow = false,
-    offers = [],
+    // offers = [],
   } = restaurant;
 
   const theme = useTheme();
@@ -83,93 +74,93 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
     />
   );
 
-  const offersIcons = offers.map(offer => {
-    switch (offer) {
-      case 'Beer':
-        return (
-          <IconBeer
-            key={'beer'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Coffee':
-        return (
-          <IconCoffee
-            key={'coffee'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Dessert':
-        return (
-          <IconDessert
-            key={'dessert'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Pizza':
-        return (
-          <IconPizza
-            key={'pizza'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Salad':
-        return (
-          <IconSalad
-            key={'salad'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Sandwich':
-        return (
-          <IconSandwich
-            key={'sandwich'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Soup':
-        return (
-          <IconSoup
-            key={'soup'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Spaqhetti':
-        return (
-          <IconSpaghetti
-            key={'spaghetti'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Tea':
-        return (
-          <IconTea
-            key={'tea'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
-      case 'Wine':
-        return (
-          <IconWine
-            key={'wine'}
-            color={theme.colors.accent}
-            size={theme.fontsSize.body}
-          />
-        );
+  // const offersIcons = offers.map(offer => {
+  //   switch (offer) {
+  //     case 'Beer':
+  //       return (
+  //         <IconBeer
+  //           key={'beer'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Coffee':
+  //       return (
+  //         <IconCoffee
+  //           key={'coffee'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Dessert':
+  //       return (
+  //         <IconDessert
+  //           key={'dessert'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Pizza':
+  //       return (
+  //         <IconPizza
+  //           key={'pizza'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Salad':
+  //       return (
+  //         <IconSalad
+  //           key={'salad'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Sandwich':
+  //       return (
+  //         <IconSandwich
+  //           key={'sandwich'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Soup':
+  //       return (
+  //         <IconSoup
+  //           key={'soup'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Spaqhetti':
+  //       return (
+  //         <IconSpaghetti
+  //           key={'spaghetti'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Tea':
+  //       return (
+  //         <IconTea
+  //           key={'tea'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
+  //     case 'Wine':
+  //       return (
+  //         <IconWine
+  //           key={'wine'}
+  //           color={theme.colors.accent}
+  //           size={theme.fontsSize.body}
+  //         />
+  //       );
 
-      default:
-        return null;
-    }
-  });
+  //     default:
+  //       return null;
+  //   }
+  // });
 
   return (
     <Reanimated.View
@@ -198,13 +189,13 @@ export const RestaurantInfo = (restaurant: RestaurantInfoProps) => {
                 {stars}
                 {restStar}
               </StyledRating>
-              <Text style={textStyle('caption', theme)}>{address}</Text>
+              <Text style={textStyle('caption', theme)}>{vicinity}</Text>
             </StyledCol>
             {isOpenNow && (
               <IconOpen color={theme.colors.accent} size={theme.spacing.xxl} />
             )}
           </StyledRow>
-          <StyledOffers>{offersIcons}</StyledOffers>
+          {/* <StyledOffers>{offersIcons}</StyledOffers> */}
         </StyledInfo>
       </StyledCard>
     </Reanimated.View>

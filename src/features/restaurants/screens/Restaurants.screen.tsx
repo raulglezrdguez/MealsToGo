@@ -8,48 +8,46 @@ import Reanimated, {
   SlideInRight,
 } from 'react-native-reanimated';
 
-import {
-  RestaurantInfo,
-  RestaurantInfoProps,
-} from '../components/RestaurantInfo';
+import { RestaurantInfo } from '../components/RestaurantInfo';
 import {
   StyledRestaurantList,
   StyledSearchContainer,
 } from './Restaurants.screen.styled';
 import { SlideDelay } from '../../../utils/consts';
+import { RestaurantsEntity } from '../../../utils/camelizeTypes';
 
-const DATA: RestaurantInfoProps[] = [
+const DATA: RestaurantsEntity[] = [
   {
     name: 'Test',
-    photos: ['./../../../assets/restaurant-foods.jpg'],
-    address: 'this is the address',
+    // photos: ['./../../../assets/restaurant-foods.jpg'],
+    vicinity: 'this is the address',
     icon: '',
     isOpenNow: true,
-    offers: ['Beer', 'Dessert', 'Pizza'],
-    openingHours: '',
+    // offers: ['Beer', 'Dessert', 'Pizza'],
+    openingHours: { openNow: false },
     rating: 2.4,
   },
   {
     name: 'Test1',
-    photos: ['./../../../assets/restaurant-foods.jpg'],
-    address: 'this is the address',
+    // photos: ['./../../../assets/restaurant-foods.jpg'],
+    vicinity: 'this is the address',
     icon: '',
     isOpenNow: false,
-    offers: ['Coffee', 'Sandwich', 'Wine'],
-    openingHours: '',
+    // offers: ['Coffee', 'Sandwich', 'Wine'],
+    openingHours: { openNow: false },
     rating: 2.4,
   },
 ];
 
-const renderItem: ListRenderItem<RestaurantInfoProps> = ({ item }) => (
+const renderItem: ListRenderItem<RestaurantsEntity> = ({ item }) => (
   <RestaurantInfo
     key={item.name}
-    name={item.name}
+    name={item.name || ''}
     photos={item.photos}
-    address={item.address}
+    vicinity={item.vicinity}
     rating={item.rating}
     isOpenNow={item.isOpenNow}
-    offers={item.offers}
+    // offers={item.offers}
   />
 );
 
@@ -74,7 +72,9 @@ export const Restaurants = () => {
       </StyledSearchContainer>
       <StyledRestaurantList
         data={DATA}
-        keyExtractor={(item: RestaurantInfoProps) => item.name}
+        keyExtractor={(item: RestaurantsEntity) =>
+          item.name || Math.floor(Math.random() * 1000).toString()
+        }
         renderItem={renderItem}
       />
       <Spacer from="top" size={spacing.xxl} />
