@@ -4,6 +4,21 @@ export interface IRestaurants {
   results?: RestaurantsEntity[] | null;
   status: string;
 }
+
+export const Offers = [
+  'Beer',
+  'Coffee',
+  'Dessert',
+  'Pizza',
+  'Salad',
+  'Sandwich',
+  'Soup',
+  'Spaqhetti',
+  'Tea',
+  'Wine',
+] as const;
+export type OffersType = typeof Offers[number];
+
 export interface RestaurantsEntity {
   businessStatus?: string;
   geometry?: Geometry;
@@ -23,6 +38,8 @@ export interface RestaurantsEntity {
   permanentlyClosed?: boolean | null;
   isClosedTemporarily?: boolean | null;
   isOpenNow?: boolean | null;
+  photosList?: any[] | null;
+  offers?: OffersType[] | null;
 }
 export interface Geometry {
   location: NortheastOrSouthwestOrLocation;

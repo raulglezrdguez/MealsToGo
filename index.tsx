@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
@@ -14,9 +14,16 @@ import {
   CombinedDefaultTheme as DefaultTheme,
 } from './src/theme';
 import { useDarkStore } from './src/stores/darkStore';
+// import { RestaurantContextProvider } from './src/services/restaurants/restaurants.context';
+import { useRestaurantsStore } from './src/stores/restaurantsStore';
 
 export default function Main() {
   const dark = useDarkStore(state => state.dark);
+  const fetchRestaurants = useRestaurantsStore(state => state.fetchRestaurants);
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, [fetchRestaurants]);
 
   const theme = dark ? DarkTheme : DefaultTheme;
 
@@ -24,9 +31,11 @@ export default function Main() {
     <GestureHandlerRootView style={styles.gestureHandler}>
       <ThemeProvider theme={StyledTheme}>
         <PaperProvider theme={theme}>
+          {/* <RestaurantContextProvider> */}
           <NavigationContainer theme={theme}>
             <App />
           </NavigationContainer>
+          {/* </RestaurantContextProvider> */}
         </PaperProvider>
       </ThemeProvider>
     </GestureHandlerRootView>

@@ -4,11 +4,14 @@ import { persist } from 'zustand/middleware';
 
 type DarkState = {
   dark: Boolean;
+};
+
+type DarkActions = {
   setDark: (newDark: Boolean) => void;
   changeDark: () => void;
 };
 
-export const useDarkStore = create<DarkState>()(
+export const useDarkStore = create<DarkState & DarkActions>()(
   persist(
     set => ({
       dark: false,

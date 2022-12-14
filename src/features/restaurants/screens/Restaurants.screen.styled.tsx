@@ -16,4 +16,15 @@ const StyledRestaurantList = styled(FlatList).attrs({
   },
 })`` as unknown as typeof FlatList;
 
-export { StyledContainer, StyledSearchContainer, StyledRestaurantList };
+const StyledActivityIndicatorContainer = styled(View)`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
+export {
+  StyledContainer,
+  StyledSearchContainer,
+  StyledRestaurantList,
+  StyledActivityIndicatorContainer,
+};

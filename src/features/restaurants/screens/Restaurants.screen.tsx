@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListRenderItem, StyleSheet } from 'react-native';
-import { Searchbar, useTheme } from 'react-native-paper';
+import { ActivityIndicator, Searchbar, useTheme } from 'react-native-paper';
 import { Spacer } from '../../../components/Spacer';
 import Reanimated, {
   Layout,
@@ -10,49 +10,33 @@ import Reanimated, {
 
 import { RestaurantInfo } from '../components/RestaurantInfo';
 import {
+  StyledActivityIndicatorContainer,
   StyledRestaurantList,
   StyledSearchContainer,
 } from './Restaurants.screen.styled';
 import { SlideDelay } from '../../../utils/consts';
 import { RestaurantsEntity } from '../../../utils/camelizeTypes';
-
-const DATA: RestaurantsEntity[] = [
-  {
-    name: 'Test',
-    // photos: ['./../../../assets/restaurant-foods.jpg'],
-    vicinity: 'this is the address',
-    icon: '',
-    isOpenNow: true,
-    // offers: ['Beer', 'Dessert', 'Pizza'],
-    openingHours: { openNow: false },
-    rating: 2.4,
-  },
-  {
-    name: 'Test1',
-    // photos: ['./../../../assets/restaurant-foods.jpg'],
-    vicinity: 'this is the address',
-    icon: '',
-    isOpenNow: false,
-    // offers: ['Coffee', 'Sandwich', 'Wine'],
-    openingHours: { openNow: false },
-    rating: 2.4,
-  },
-];
+// import { useRestaurantContext } from '../../../services/restaurants/restaurants.context';
+import { useRestaurantsStore } from '../../../stores/restaurantsStore';
 
 const renderItem: ListRenderItem<RestaurantsEntity> = ({ item }) => (
   <RestaurantInfo
     key={item.name}
     name={item.name || ''}
-    photos={item.photos}
+    photosList={item.photosList}
     vicinity={item.vicinity}
     rating={item.rating}
     isOpenNow={item.isOpenNow}
-    // offers={item.offers}
+    offers={item.offers}
   />
 );
 
 export const Restaurants = () => {
-  const { spacing } = useTheme();
+  const { spacing, colors } = useTheme();
+  // const restaurants = useRestaurantContext();
+  const restaurants = useRestaurantsStore(state => state.restaurants);
+  const loading = useRestaurantsStore(state => state.loading);
+  console.log(loading);
   return (
     <Reanimated.View
       entering={
@@ -70,13 +54,24 @@ export const Restaurants = () => {
       <StyledSearchContainer>
         <Searchbar value="" />
       </StyledSearchContainer>
-      <StyledRestaurantList
-        data={DATA}
-        keyExtractor={(item: RestaurantsEntity) =>
-          item.name || Math.floor(Math.random() * 1000).toString()
-        }
-        renderItem={renderItem}
-      />
+      {loading ? (
+        <StyledActivityIndicatorContainer>
+          <ActivityIndicator
+            animating={true}
+            size={spacing.xxxl}
+            color={colors.accent}
+          />
+        </StyledActivityIndicatorContainer>
+      ) : (
+        <StyledRestaurantList
+          data={restaurants}
+          keyExtractor={(item: RestaurantsEntity) =>
+            item.name || Math.floor(Math.random() * 1000).toString()
+          }
+          renderItem={renderItem}
+        />
+      )}
+
       <Spacer from="top" size={spacing.xxl} />
     </Reanimated.View>
   );
