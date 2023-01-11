@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
 type DarkState = {
   dark: Boolean;
@@ -20,7 +20,7 @@ export const useDarkStore = create<DarkState & DarkActions>()(
     }),
     {
       name: 'dark',
-      getStorage: () => AsyncStorage,
+      storage: createJSONStorage(() => AsyncStorage),
     },
   ),
 );

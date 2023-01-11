@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 
 import { restaurantRequest } from '../services/restaurants/restaurants.services';
 import { RestaurantsEntity } from '../utils/camelizeTypes';
