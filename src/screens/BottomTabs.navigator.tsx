@@ -20,6 +20,7 @@ export const BottomTabsNavigator = () => {
       screenOptions={({}) => ({
         headerRight: () => (
           <IconButton
+            testID="changeDark"
             icon={dark ? 'weather-night' : 'weather-sunny'}
             onPress={changeDark}
           />
