@@ -6,11 +6,12 @@ export const restaurantRequest = (
 ): Promise<RestaurantsEntity[]> => {
   return new Promise((resolve, reject) => {
     const mock = mocks[location];
+
     if (!mock) {
       reject('No location found');
     }
     setTimeout(() => {
-      const results: RestaurantsEntity[] = mock.results
+      const results: RestaurantsEntity[] = mock?.results
         ? mock.results.map(result => ({
             ...result,
             isClosedTemporarily: result.businessStatus === 'CLOSED_TEMPORARILY',
@@ -27,13 +28,3 @@ export const restaurantRequest = (
     }, 2000);
   });
 };
-
-// export const restaurantRequest = async (
-//   location = '37.7749295,-122.4194155',
-// ) => {
-//   const mock = mocks[location];
-//   if (!mock) {
-//     return null;
-//   }
-//   return mock;
-// };

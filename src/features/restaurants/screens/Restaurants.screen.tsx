@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListRenderItem, StyleSheet } from 'react-native';
-import { ActivityIndicator, Searchbar, useTheme } from 'react-native-paper';
+import { ActivityIndicator, useTheme } from 'react-native-paper';
 import { Spacer } from '../../../components/Spacer';
 import Reanimated, {
   Layout,
@@ -12,12 +12,12 @@ import { RestaurantInfo } from '../components/RestaurantInfo';
 import {
   StyledActivityIndicatorContainer,
   StyledRestaurantList,
-  StyledSearchContainer,
 } from './Restaurants.screen.styled';
 import { SlideDelay } from '../../../utils/consts';
 import { RestaurantsEntity } from '../../../utils/camelizeTypes';
 // import { useRestaurantContext } from '../../../services/restaurants/restaurants.context';
 import { useRestaurantsStore } from '../../../stores/restaurantsStore';
+import { Search } from '../components/Search';
 
 const renderItem: ListRenderItem<RestaurantsEntity> = ({ item }) => (
   <RestaurantInfo
@@ -36,7 +36,7 @@ export const Restaurants = () => {
   // const restaurants = useRestaurantContext();
   const restaurants = useRestaurantsStore(state => state.restaurants);
   const loading = useRestaurantsStore(state => state.loading);
-  console.log(loading);
+
   return (
     <Reanimated.View
       entering={
@@ -51,9 +51,7 @@ export const Restaurants = () => {
       }
       layout={Layout.springify()}
       style={styles.container}>
-      <StyledSearchContainer>
-        <Searchbar value="" />
-      </StyledSearchContainer>
+      <Search />
       {loading ? (
         <StyledActivityIndicatorContainer>
           <ActivityIndicator

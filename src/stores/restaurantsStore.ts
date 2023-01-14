@@ -11,7 +11,7 @@ type RestaurantsState = {
 
 type RestaurantsActions = {
   setRestaurants: (newRestaurants: RestaurantsEntity[]) => void;
-  fetchRestaurants: () => void;
+  fetchRestaurants: (location: string) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string) => void;
 };
@@ -23,11 +23,11 @@ export const useRestaurantsStore = create<
   loading: false,
   error: '',
   setRestaurants: restaurants => set(() => ({ restaurants })),
-  fetchRestaurants: () => {
+  fetchRestaurants: location => {
     set(() => ({ loading: true }));
-    restaurantRequest()
+    restaurantRequest(location)
       .then(restaurants => set(() => ({ restaurants, loading: false })))
-      .catch(error => set(() => ({ loading: false, error })));
+      .catch(error => set(() => ({ loading: false, error, restaurants: [] })));
   },
   setLoading: loading => set(() => ({ loading })),
   setError: error => set(() => ({ error })),

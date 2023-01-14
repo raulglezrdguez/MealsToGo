@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["camelcase", "mealstogo", "zustand"]
+  "cSpell.words": [
+    "camelcase",
+    "consts",
+    "mealstogo",
+    "Pressable",
+    "Searchbar",
+    "springify",
+    "zustand"
+  ]
 }
