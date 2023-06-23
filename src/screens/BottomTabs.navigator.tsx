@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { IconButton } from 'react-native-paper';
 
-import { Restaurants } from '../features/restaurants/screens/Restaurants.screen';
+import { RestaurantsStackNavigator } from './Restaurants.navigator';
 import { useDarkStore } from '../stores/darkStore';
 import { Map } from '../features/map/screens/Map.screen';
 import { Settings } from '../features/settings/screens/Settings.screen';
@@ -26,7 +26,10 @@ export const BottomTabsNavigator = () => {
           />
         ),
       })}>
-      <BottomTabs.Screen name="Restaurants" component={Restaurants} />
+      <BottomTabs.Screen
+        name="RestaurantsStackNavigator"
+        component={RestaurantsStackNavigator}
+      />
       <BottomTabs.Screen name="Map" component={Map} />
       <BottomTabs.Screen name="Settings" component={Settings} />
     </BottomTabs.Navigator>

@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 import React, { useEffect } from 'react';
 import { AppRegistry } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
@@ -22,7 +24,7 @@ export default function Main() {
   const fetchRestaurants = useRestaurantsStore(state => state.fetchRestaurants);
 
   useEffect(() => {
-    fetchRestaurants();
+    fetchRestaurants('37.7749295,-122.4194155');
   }, [fetchRestaurants]);
 
   const theme = dark ? DarkTheme : DefaultTheme;
